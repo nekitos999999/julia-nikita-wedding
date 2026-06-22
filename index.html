@@ -310,144 +310,148 @@
     </div>
   </section>
 
-  <!-- Обратный отсчёт -->
+  <!-- Таймер обратного отсчёта -->
   <section id="countdown" class="container section bg-powder-blue hidden">
     <h2>До нашей свадьбы осталось</h2>
     <div class="decor-line"></div>
-    <div class="countdown-container" id="countdown-display">
+    <div class="countdown-container">
       <div class="countdown-item">
-        <span id="cd-days" class="countdown-value">00</span><br>дней
+        <span class="countdown-value" id="days">--</span>
+        <span>дней</span>
       </div>
       <div class="countdown-item">
-        <span id="cd-hours" class="countdown-value">00</span><br>часов
+        <span class="countdown-value" id="hours">--</span>
+        <span>часов</span>
       </div>
       <div class="countdown-item">
-        <span id="cd-minutes" class="countdown-value">00</span><br>минут
+        <span class="countdown-value" id="minutes">--</span>
+        <span>минут</span>
       </div>
       <div class="countdown-item">
-        <span id="cd-seconds" class="countdown-value">00</span><br>секунд
+        <span class="countdown-value" id="seconds">--</span>
+        <span>секунд</span>
       </div>
     </div>
   </section>
 
   <!-- Как добраться -->
-  <section id="location" class="container section hidden">
+  <section id="location" class="container section bg-cream hidden">
     <h2>Как добраться</h2>
     <div class="decor-line"></div>
     <div class="location-flex">
-      <!-- Вместо пустой карты - блок с иконкой и текстом -->
       <div class="map-placeholder">
-        📍 <br>
-        <strong>The Great Hall Yakimanka</strong><br>
-        Москва, ул. Большая Якиманка, д. 15<br>
-        <small>Рядом метро «Полянка» и «Октябрьская»</small>
+        <p>📍 The Great Hall Yakimanka</p>
+        <p>Москва, ул. Большая Якиманка, д. 15</p>
+        <p>Ориентир: рядом с парком и набережной</p>
       </div>
-      <div class="location-info">
-        <p><strong>Ориентиры:</strong> Вход со стороны фасада, ориентир — вывеска The Great Hall.</p>
-        <p><strong>Парковка:</strong> Городская парковка вдоль улицы; для гостей предусмотрена скидка по промокоду «JuliaNikita2026» (уточняйте у организаторов).</p>
-      </div>
+      <p>
+        Удобнее всего добираться на метро: станция «Октябрьская» или «Полянка».<br>
+        От метро — 10 минут пешком. Для гостей на авто предусмотрена парковка.
+      </p>
     </div>
   </section>
 
   <!-- RSVP-форма -->
-  <section id="rsvp" class="container section bg-cream hidden">
-    <h2>Пожалуйста, подтвердите Ваше присутствие</h2>
+  <section id="rsvp" class="container section hidden">
+    <h2>Подтвердите ваше присутствие</h2>
     <div class="decor-line"></div>
-    <form id="rsvp-form" class="rsvp-form">
-      <label>
-        Ваше имя
-        <input type="text" required placeholder="Например: Мария" />
-      </label>
-      <label>
-        Выбор
-        <select required>
-          <option value="" disabled selected>Выберите вариант</option>
-          <option value="yes">Приду 🎉</option>
-          <option value="no">К сожалению, не смогу 😔</option>
-        </select>
-      </label>
-      <label>
-        Комментарий (пожелания, аллергии и т. п.)
-        <textarea rows="3" placeholder="Напишите, если есть особые пожелания"></textarea>
-      </label>
-      <button type="submit" class="btn-silver">Отправить ответ</button>
+    <form class="rsvp-form" id="rsvp-form">
+      <label for="guest-name">Ваше имя</label>
+      <input type="text" id="guest-name" name="guest-name" required placeholder="Например: Анна Смирнова" />
+
+      <label for="guests-count">Количество гостей</label>
+      <select id="guests-count" name="guests-count" required>
+        <option value="" disabled selected>Выберите количество</option>
+        <option value="1">1 гость</option>
+        <option value="2">2 гостя</option>
+        <option value="3">3 гостя</option>
+        <option value="4">4 гостя</option>
+      </select>
+
+      <label for="contact-phone">Контактный телефон</label>
+      <input type="tel" id="contact-phone" name="contact-phone" required placeholder="+7 (999) 000-00-00" />
+
+      <label for="message">Пожелания или вопросы</label>
+      <textarea id="message" name="message" rows="4" placeholder="Если есть особые пожелания — напишите здесь"></textarea>
+
+      <button type="submit" class="btn-silver">Отправить подтверждение</button>
+      <div id="rsvp-message" class="success-message" style="display:none;"></div>
     </form>
-    <div id="rsvp-success" class="success-message hidden">
-      ❤️ Спасибо! Мы очень рады, что вы будете с нами в этот день!
-    </div>
   </section>
 
   <!-- Подвал -->
-  <footer class="container footer hidden">
-    <p>Юлия & Никита 🤍</p>
-    <div class="contacts-block">
-      <p>По любым вопросам: +7 (999) 000-00-00 (Никита) или +7 (999) 000-00-01 (Юлия)</p>
+  <footer class="footer">
+    <div class="container">
+      <p>С любовью, Юлия и Никита</p>
+      <div class="contacts-block">
+        <p>Вопросы и уточнения: +7 (999) 000-00-00</p>
+        <p>Почта: wedding@julia-nikita.ru</p>
+      </div>
       <div class="socials">
         <a href="#" class="social-link">Telegram</a>
         <a href="#" class="social-link">WhatsApp</a>
+        <a href="#" class="social-link">VK</a>
       </div>
+      <p style="font-size: 0.85rem; color: #999;">© 2026 Юлия и Никита. Все права защищены.</p>
     </div>
-    <p class="copyright">© 2026 Все права защищены. С любовью, Юлия и Никита.</p>
   </footer>
 
   <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      // --- Обратный отсчёт ---
-      const weddingDate = new Date('2026-08-13T12:00:00').getTime();
+    // --- Таймер обратного отсчёта ---
+    const weddingDate = new Date('August 13, 2026 12:00:00').getTime();
 
-      const daysEl = document.getElementById('cd-days');
-      const hoursEl = document.getElementById('cd-hours');
-      const minutesEl = document.getElementById('cd-minutes');
-      const secondsEl = document.getElementById('cd-seconds');
+    const daysEl = document.getElementById('days');
+    const hoursEl = document.getElementById('hours');
+    const minutesEl = document.getElementById('minutes');
+    const secondsEl = document.getElementById('seconds');
 
-      const updateCountdown = () => {
-        const now = new Date().getTime();
-        const distance = weddingDate - now;
+    setInterval(() => {
+      const now = new Date().getTime();
+      const diff = weddingDate - now;
 
-        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((diff % (1000 * 60)) / 1000);
 
-        daysEl.innerText = String(days).padStart(2, '0');
-        hoursEl.innerText = String(hours).padStart(2, '0');
-        minutesEl.innerText = String(minutes).padStart(2, '0');
-        secondsEl.innerText = String(seconds).padStart(2, '0');
-      };
+      daysEl.textContent = days.toString().padStart(2, '0');
+      hoursEl.textContent = hours.toString().padStart(2, '0');
+      minutesEl.textContent = minutes.toString().padStart(2, '0');
+      secondsEl.textContent = seconds.toString().padStart(2, '0');
+    }, 1000);
 
-      updateCountdown();
-      setInterval(updateCountdown, 1000);
-
-      // --- Плавное появление блоков при скролле ---
-      const observerOptions = { threshold: 0.1 };
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-          }
-        });
-      }, observerOptions);
-
-      document.querySelectorAll('.hidden').forEach(el => observer.observe(el));
-
-      // --- Кнопка «Открыть приглашение» ---
-      const btn = document.getElementById('open-invite-btn');
-      btn.addEventListener('click', () => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-        setTimeout(() => {
-          const sections = document.querySelectorAll('.hidden');
-          sections.forEach(el => el.classList.add('visible'));
-        }, 500);
+    // --- Плавное появление блоков при скролле ---
+    const observerOptions = { threshold: 0.1 };
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          entry.target.classList.remove('hidden');
+        }
       });
+    }, observerOptions);
 
-      // --- RSVP-форма ---
-      const form = document.getElementById('rsvp-form');
-      const successMsg = document.getElementById('rsvp-success');
-      form.addEventListener('submit', (e) => {
-        e.preventDefault();
-        form.style.display = 'none';
-        successMsg.classList.remove('hidden');
-      });
+    document.querySelectorAll('.hidden').forEach(el => observer.observe(el));
+
+    // --- Кнопка «Открыть приглашение» ---
+    const btn = document.getElementById('open-invite-btn');
+    btn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      setTimeout(() => {
+        const firstSection = document.querySelector('.section');
+        if (firstSection) firstSection.scrollIntoView({ behavior: 'smooth' });
+      }, 600);
+    });
+
+    // --- RSVP-форма (имитация отправки) ---
+    const rsvpForm = document.getElementById('rsvp-form');
+    const rsvpMessage = document.getElementById('rsvp-message');
+
+    rsvpForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      rsvpMessage.textContent = 'Спасибо, ваше подтверждение получено! Мы очень рады, что вы будете с нами в этот день.';
+      rsvpMessage.style.display = 'block';
+      rsvpForm.reset();
     });
   </script>
 </body>
