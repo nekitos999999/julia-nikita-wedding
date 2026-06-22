@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Свадьба Юлии и Никиты • 13.08.2026</title>
+  <!-- Комментарии: базовая разметка, метаданные, подключение стилей и скрипта -->
+</head>
+<body>
+
+  <!-- Первый экран с параллаксом -->
+  <section class="hero" id="hero">
+    <div class="hero-content">
+      <h1>Мы нашли своё счастье и хотим, чтобы в этот особенный день вы были рядом</h1>
+      <p class="couple-names">Юлия & Никита</p>
+      <p class="event-details">13 августа 2026 года, 12:00<br>The Great Hall Yakimanka, Москва, ул. Большая Якиманка, д. 15</p>
+      <button id="open-invite-btn" class="btn-silver">Открыть приглашение</button>
+    </div>
+  </section>
+
+  <!-- Секция «История любви» -->
+  <section id="love-story" class="container section hidden">
+    <h2>История нашей любви</h2>
+    <div class="love-grid">
+      <div class="story-text">
+        <p>Мы познакомились в тот самый момент, когда меньше всего этого ждали, — и сразу почувствовали, что всё встало на свои места. С тех пор каждый день рядом друг с другом стал маленьким праздником.</p>
+        <p>Теперь мы готовы сделать следующий шаг и разделить этот важный день с теми, кто нам дорог. Ждём вас на нашей свадьбе!</p>
+      </div>
+      <div class="photo-gallery">
+        <!-- Места для фото: замените src на свои изображения -->
+        <div class="photo-frame"><img src="https://via.placeholder.com/400x500/B0C4DE/FFFFFF?text=Фото+1" alt="Пара на прогулке" /></div>
+        <div class="photo-frame"><img src="https://via.placeholder.com/400x500/FFF9F7/2C3E50?text=Фото+2" alt="Пара у воды" /></div>
+        <div class="photo-frame"><img src="https://via.placeholder.com/400x500/C0C0C0/FFFFFF?text=Фото+3" alt="Тёплый момент" /></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Обратный отсчёт -->
+  <section id="countdown" class="container section bg-powder-blue hidden">
+    <h2>До нашей свадьбы осталось</h2>
+    <div class="countdown-container" id="countdown-display">
+      <div><span id="cd-days">00</span><br>дней</div>
+      <div><span id="cd-hours">00</span><br>часов</div>
+      <div><span id="cd-minutes">00</span><br>минут</div>
+      <div><span id="cd-seconds">00</span><br>секунд</div>
+    </div>
+  </section>
+
+  <!-- Как добраться -->
+  <section id="location" class="container section hidden">
+    <h2>Как добраться</h2>
+    <div class="location-flex">
+      <!-- Плейсхолдер карты -->
+      <div class="map-placeholder">
+        <img src="https://via.placeholder.com/800x400/E0E0E0/2C3E50?text=Карта+маршрута" alt="Карта маршрута" />
+      </div>
+      <div class="location-info">
+        <p><strong>Место:</strong> The Great Hall Yakimanka</p>
+        <p><strong>Адрес:</strong> г. Москва, ул. Большая Якиманка, д. 15.</p>
+        <p><strong>Ориентиры:</strong> Рядом станции метро «Полянка» и «Октябрьская». Вход со стороны фасада, ориентир — вывеска The Great Hall.</p
+      </div>
+    </div>
+  </section>
+
+  <!-- RSVP-форма -->
+  <section id="rsvp" class="container section bg-cream hidden">
+    <h2>Пожалуйста, подтвердите Ваше присутствие</h2>
+    <form id="rsvp-form" class="rsvp-form">
+      <label>
+        Ваше имя
+        <input type="text" required placeholder="Например: Мария" />
+      </label>
+      <label>
+        Выбор
+        <select required>
+          <option value="" disabled selected>Выберите вариант</option>
+          <option value="yes">Приду 🎉</option>
+          <option value="no">К сожалению, не смогу 😔</option>
+        </select>
+      </label>
+      <label>
+        Комментарий
+        <textarea rows="3" placeholder="Напишите, если есть особые пожелания"></textarea>
+      </label>
+      <button type="submit" class="btn-silver">Отправить ответ</button>
+    </form>
+    <div id="rsvp-success" class="success-message hidden">
+      ❤️ Спасибо! Мы очень рады, что вы будете с нами в этот день!
+    </div>
+  </section>
+
+  <!-- Подвал -->
+  <footer class="container footer hidden">
+    <p>Юлия & Никита 🤍</p>
+    <div class="contacts-block">
+      <p>По любым вопросам: +7 (916) 629-90-89 (Никита) или +7 (977) 563-62-17 (Юлия)</p>
+      <div class="socials">
+        <a href="#" class="social-link">Telegram</a>
+        <a href="#" class="social-link">WhatsApp</a>
+      </div>
+    </div>
+    <p class="copyright">© 2026 Все права защищены. С любовью, Юлия и Никита.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
