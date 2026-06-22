@@ -5,18 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Свадьба Юлии и Никиты • 13.08.2026</title>
   <style>
-    /* --- Сброс и базовые настройки --- */
+    /* --- Базовые настройки --- */
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background-color: #FFF9F7;
       color: #2C3E50;
-      line-height: 1.6;
-      overflow-x: hidden;
+      line-height: 1.7;
     }
     h1, h2, h3 {
       font-family: 'Georgia', serif;
-      margin-bottom: 1rem;
+      margin-bottom: 1.2rem;
       text-align: center;
     }
     .container {
@@ -29,31 +28,22 @@
     .hero {
       height: 100vh;
       min-height: 600px;
-      background: linear-gradient(rgba(255, 249, 247, 0.92), rgba(255, 249, 247, 0.98)),
-                  url('https://via.placeholder.com/1920x1080/E0E0E0/B0C4DE?text=Свадебный+фон') no-repeat center/cover fixed;
+      /* Нежный градиент вместо фото, чтобы не было пусто */
+      background: linear-gradient(135deg, #FFF9F7 0%, #EFF3F7 100%);
       display: flex;
       align-items: center;
       justify-content: center;
       position: relative;
       z-index: 1;
     }
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: radial-gradient(circle at 50% 50%, rgba(176, 196, 222, 0.12) 0%, transparent 55%);
-      pointer-events: none;
-      z-index: 2;
-    }
     .hero-content {
       text-align: center;
       z-index: 3;
       padding: 2.5rem;
       border-radius: 20px;
-      background: rgba(255, 255, 255, 0.88);
-      backdrop-filter: blur(10px);
+      background: rgba(255, 255, 255, 0.95);
       box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
-      border: 1px solid rgba(192, 192, 192, 0.3);
+      border: 1px solid rgba(192, 192, 192, 0.2);
     }
     .couple-names {
       font-size: 2rem;
@@ -87,12 +77,20 @@
       box-shadow: 0 8px 20px rgba(192, 192, 192, 0.45);
       background: #A8A8A8;
     }
-    .btn-silver:active { transform: translateY(1px); }
 
     /* --- Общие секции --- */
     .section { padding: 4rem 0; }
     .bg-powder-blue { background-color: rgba(176, 196, 222, 0.06); }
     .bg-cream { background-color: #FFFAFA; }
+
+    /* --- Декоративные разделители --- */
+    .decor-line {
+      width: 60px;
+      height: 4px;
+      background: #B0C4DE;
+      margin: 2rem auto;
+      border-radius: 2px;
+    }
 
     /* --- История любви --- */
     .love-grid {
@@ -102,18 +100,40 @@
       align-items: start;
     }
     .story-text p { margin-bottom: 1rem; }
-    .photo-gallery {
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-    }
-    .photo-frame {
+    
+    /* Карточки для фото (с фоновым узором, если фото нет) */
+    .photo-card {
       border-radius: 14px;
       overflow: hidden;
       box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
       border: 2px solid #C0C0C0;
+      background: #F5F7FA;
+      min-height: 400px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      color: #7F8C8D;
+      font-size: 0.9rem;
+      text-align: center;
+      padding: 1rem;
     }
-    .photo-frame img { width: 100%; height: auto; display: block; }
+    .photo-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .photo-caption {
+      position: absolute;
+      bottom: 10px;
+      left: 0;
+      right: 0;
+      background: rgba(255, 255, 255, 0.85);
+      padding: 6px;
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
 
     /* --- Обратный отсчёт --- */
     .countdown-container {
@@ -122,7 +142,7 @@
       gap: 1.2rem;
       flex-wrap: wrap;
     }
-    .countdown-container > div {
+    .countdown-item {
       text-align: center;
       background: white;
       padding: 1rem 1.3rem;
@@ -131,7 +151,7 @@
       border: 1px solid #E0E0E0;
       min-width: 70px;
     }
-    #cd-days, #cd-hours, #cd-minutes, #cd-seconds {
+    .countdown-value {
       display: block;
       font-family: 'Georgia', serif;
       font-size: 1.8rem;
@@ -139,16 +159,26 @@
       color: #2C3E50;
     }
 
-    /* --- Как добраться --- */
+    /* --- Как добраться (без пустой карты) --- */
     .location-flex {
       display: flex;
       flex-direction: column;
       gap: 2rem;
     }
-    .map-placeholder img {
-      width: 100%;
+    .map-placeholder {
+      background: #EFF3F7;
       border-radius: 12px;
-      box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+      padding: 1.5rem;
+      text-align: center;
+      border: 1px dashed #B0C4DE;
+      color: #7F8C8D;
+    }
+    .map-placeholder::before {
+      content: '📍';
+      display: block;
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      opacity: 0.6;
     }
 
     /* --- RSVP-форма --- */
@@ -171,7 +201,6 @@
       border: 1px solid #DDD;
       font-family: inherit;
       font-size: 1rem;
-      transition: border 0.3s, box-shadow 0.3s;
     }
     .rsvp-form input:focus,
     .rsvp-form select:focus,
@@ -215,7 +244,6 @@
       font-weight: 600;
       padding: 0.4rem 0.8rem;
       border-radius: 6px;
-      transition: all 0.2s;
     }
     .social-link:hover { background: rgba(176, 196, 222, 0.15); }
 
@@ -236,8 +264,8 @@
       .hero-content { padding: 1.5rem; }
       .couple-names { font-size: 1.5rem; }
       .event-details { font-size: 1rem; }
-      .countdown-container > div { min-width: 60px; padding: 0.8rem 1rem; }
-      #cd-days, #cd-hours, #cd-minutes, #cd-seconds { font-size: 1.5rem; }
+      .countdown-item { min-width: 60px; padding: 0.8rem 1rem; }
+      .countdown-value { font-size: 1.5rem; }
     }
   </style>
 </head>
@@ -256,15 +284,29 @@
   <!-- История любви -->
   <section id="love-story" class="container section hidden">
     <h2>История нашей любви</h2>
+    <div class="decor-line"></div>
     <div class="love-grid">
       <div class="story-text">
         <p>Мы познакомились в тот самый момент, когда меньше всего этого ждали, — и сразу почувствовали, что всё встало на свои места. С тех пор каждый день рядом друг с другом стал маленьким праздником.</p>
         <p>Теперь мы готовы сделать следующий шаг и разделить этот важный день с теми, кто нам дорог. Ждём вас на нашей свадьбе!</p>
       </div>
       <div class="photo-gallery">
-        <div class="photo-frame"><img src="https://via.placeholder.com/400x500/B0C4DE/FFFFFF?text=Фото+1" alt="Пара на прогулке" /></div>
-        <div class="photo-frame"><img src="https://via.placeholder.com/400x500/FFF9F7/2C3E50?text=Фото+2" alt="Пара у воды" /></div>
-        <div class="photo-frame"><img src="https://via.placeholder.com/400x500/C0C0C0/FFFFFF?text=Фото+3" alt="Тёплый момент" /></div>
+        <!-- Карточка 1: если есть фото - оно встанет, если нет - будет нежный фон с подписью -->
+        <div class="photo-card">
+          <!-- Замени src на свое фото, если есть. Если нет - оставь как есть, будет красивый блок -->
+          <img src="" alt="Пара на прогулке" />
+          <div class="photo-caption">Пара на прогулке</div>
+        </div>
+        <!-- Карточка 2 -->
+        <div class="photo-card">
+          <img src="" alt="Пара у воды" />
+          <div class="photo-caption">Пара у воды</div>
+        </div>
+        <!-- Карточка 3 -->
+        <div class="photo-card">
+          <img src="" alt="Тёплый момент" />
+          <div class="photo-caption">Тёплый момент</div>
+        </div>
       </div>
     </div>
   </section>
@@ -272,25 +314,37 @@
   <!-- Обратный отсчёт -->
   <section id="countdown" class="container section bg-powder-blue hidden">
     <h2>До нашей свадьбы осталось</h2>
+    <div class="decor-line"></div>
     <div class="countdown-container" id="countdown-display">
-      <div><span id="cd-days">00</span><br>дней</div>
-      <div><span id="cd-hours">00</span><br>часов</div>
-      <div><span id="cd-minutes">00</span><br>минут</div>
-      <div><span id="cd-seconds">00</span><br>секунд</div>
+      <div class="countdown-item">
+        <span id="cd-days" class="countdown-value">00</span><br>дней
+      </div>
+      <div class="countdown-item">
+        <span id="cd-hours" class="countdown-value">00</span><br>часов
+      </div>
+      <div class="countdown-item">
+        <span id="cd-minutes" class="countdown-value">00</span><br>минут
+      </div>
+      <div class="countdown-item">
+        <span id="cd-seconds" class="countdown-value">00</span><br>секунд
+      </div>
     </div>
   </section>
 
   <!-- Как добраться -->
   <section id="location" class="container section hidden">
     <h2>Как добраться</h2>
+    <div class="decor-line"></div>
     <div class="location-flex">
+      <!-- Вместо пустой карты - блок с иконкой и текстом -->
       <div class="map-placeholder">
-        <img src="https://via.placeholder.com/800x400/E0E0E0/2C3E50?text=Карта+маршрута" alt="Карта маршрута" />
+        📍 <br>
+        <strong>The Great Hall Yakimanka</strong><br>
+        Москва, ул. Большая Якиманка, д. 15<br>
+        <small>Рядом метро «Полянка» и «Октябрьская»</small>
       </div>
       <div class="location-info">
-        <p><strong>Место:</strong> The Great Hall Yakimanka</p>
-        <p><strong>Адрес:</strong> г. Москва, ул. Большая Якиманка, д. 15.</p>
-        <p><strong>Ориентиры:</strong> Рядом станции метро «Полянка» и «Октябрьская». Вход со стороны фасада, ориентир — вывеска The Great Hall.</p>
+        <p><strong>Ориентиры:</strong> Вход со стороны фасада, ориентир — вывеска The Great Hall.</p>
         <p><strong>Парковка:</strong> Городская парковка вдоль улицы; для гостей предусмотрена скидка по промокоду «JuliaNikita2026» (уточняйте у организаторов).</p>
       </div>
     </div>
@@ -299,6 +353,7 @@
   <!-- RSVP-форма -->
   <section id="rsvp" class="container section bg-cream hidden">
     <h2>Пожалуйста, подтвердите Ваше присутствие</h2>
+    <div class="decor-line"></div>
     <form id="rsvp-form" class="rsvp-form">
       <label>
         Ваше имя
